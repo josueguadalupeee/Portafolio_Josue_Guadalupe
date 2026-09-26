@@ -1,0 +1,146 @@
+/* ==========================================================================
+   ANIMACIONES — Keyframes y control de movimiento
+   Se desactivan con prefers-reduced-motion o con el botón de pausa
+   (atributo data-motion="off" en <html>, guardado en localStorage).
+   ========================================================================== */
+
+@keyframes drift {
+  from { transform: translateX(-12rem); }
+  to { transform: translateX(calc(100vw + 12rem)); }
+}
+
+@keyframes walk-cycle {
+  /* Con background-size 200%, 100% muestra el frame 2; steps(2) alterna 0% ↔ 100% */
+  to { background-position: 200% 0; }
+}
+
+@keyframes patrol {
+  0% { transform: translateX(-5rem) scaleX(1); }
+  49.9% { transform: translateX(calc(100vw - 2rem)) scaleX(1); }
+  50% { transform: translateX(calc(100vw - 2rem)) scaleX(-1); }
+  100% { transform: translateX(-5rem) scaleX(-1); }
+}
+
+@keyframes flag-wave {
+  0%, 100% { transform: skewY(0deg) scaleX(1); }
+  50% { transform: skewY(8deg) scaleX(0.85); }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  40% { opacity: 0.7; }
+  60% { opacity: 0.9; }
+  80% { opacity: 0.6; }
+}
+
+@keyframes twinkle {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(0.5); }
+}
+
+@keyframes rise {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(-40vh) translateX(2rem); opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-0.5rem); }
+}
+
+@keyframes shimmer {
+  to { background-position: -200% 0, 0 0; }
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(1.5rem) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Asignación de animaciones a la escena ---------- */
+.cloud--1 { animation: drift 60s linear infinite; }
+.cloud--2 { animation: drift 85s linear infinite -30s; }
+.cloud--3 { animation: drift 110s linear infinite -70s; }
+
+.knight {
+  animation:
+    walk-cycle 0.5s steps(2) infinite,
+    patrol 40s linear -8s infinite; /* retraso negativo: aparece ya caminando */
+}
+
+.castle__flag {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: flag-wave 1.6s ease-in-out infinite;
+}
+
+.castle__flag--gold {
+  animation-delay: -0.8s;
+}
+
+:root[data-theme="dark"] .castle__window {
+  animation: flicker 2.2s steps(4) infinite;
+}
+
+.scene__stars {
+  animation: twinkle 3s steps(3) infinite;
+}
+
+:root[data-theme="dark"] .ember {
+  animation: rise 6s linear infinite;
+}
+
+.ember:nth-child(2) { animation-delay: -1s; }
+.ember:nth-child(3) { animation-delay: -2.5s; }
+.ember:nth-child(4) { animation-delay: -4s; }
+.ember:nth-child(5) { animation-delay: -3s; }
+.ember:nth-child(6) { animation-delay: -5s; }
+
+.about__figure img {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ---------- Revelado al hacer scroll (activado por JS) ---------- */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity var(--duration-slow) var(--ease-out), transform var(--duration-slow) var(--ease-out);
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Movimiento reducido / pausado ---------- */
+:root[data-motion="off"] *,
+:root[data-motion="off"] *::before,
+:root[data-motion="off"] *::after {
+  animation-play-state: paused !important;
+}
+
+:root[data-motion="off"] .reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+:root[data-motion="off"] {
+  scroll-behavior: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root:not([data-motion="on"]) *,
+  :root:not([data-motion="on"]) *::before,
+  :root:not([data-motion="on"]) *::after {
+    animation-play-state: paused !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  :root:not([data-motion="on"]) .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
