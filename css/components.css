@@ -287,6 +287,11 @@
   height: var(--icon-size);
 }
 
+/* Íconos muy oscuros (p. ej. Django) se aclaran en el tema noche para seguir visibles */
+:root[data-theme="dark"] .skill__icon--dark-invert {
+  filter: invert(1) hue-rotate(180deg);
+}
+
 .skill__name {
   margin: 0;
   font-family: var(--font-pixel);
