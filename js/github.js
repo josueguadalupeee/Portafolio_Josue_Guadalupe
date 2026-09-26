@@ -12,7 +12,7 @@
 
   const user = (section.dataset.githubUser || '').trim();
   const PAGE_SIZE = 6;
-  const CACHE_KEY = `gh-cache-${user.toLowerCase()}`;
+  const CACHE_KEY = `gh-cache-v2-${user.toLowerCase()}`;
   const CACHE_TTL = 15 * 60 * 1000;
 
   const els = {
@@ -215,7 +215,8 @@
     renderSkeletons();
     try {
       const { profile, list } = await loadData();
-      repos = list.filter((repo) => !repo.fork);
+      // Solo repositorios públicos y propios (se excluyen privados y forks)
+      repos = list.filter((repo) => !repo.private && repo.visibility !== 'private' && !repo.fork);
       renderProfile(profile);
       fillLanguages();
       render();
