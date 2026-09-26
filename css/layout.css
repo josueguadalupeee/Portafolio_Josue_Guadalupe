@@ -281,28 +281,41 @@ main > section:nth-of-type(even) {
 .battle__dragon {
   position: absolute;
   right: 0;
-  bottom: 1.5rem;
+  bottom: 0.5rem;
   width: var(--dragon-width);
-  aspect-ratio: 32 / 17;
+  aspect-ratio: 52 / 30;
 }
 
-/* Sprite de 2 frames de 32×17: alas arriba y alas abajo */
+/* Sprites de 2 frames de 52×30 (alas arriba / abajo). La versión --roar
+   tiene la mandíbula abierta y solo se muestra mientras lanza fuego. */
 .battle__dragon-sprite {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
   background: url("../assets/img/dragon.svg") 0 0 / 200% 100% no-repeat;
 }
 
-/* El fuego sale de la boca (borde izquierdo, a 62% de la altura) */
+.battle__dragon-sprite--roar {
+  background-image: url("../assets/img/dragon-roar.svg");
+  opacity: 0;
+  filter: drop-shadow(0 0 0.4rem rgb(238 122 31 / 0.7));
+}
+
+/* De noche, un leve brillo rojo separa al dragón negro del cielo oscuro */
+:root[data-theme="dark"] .battle__dragon-sprite:not(.battle__dragon-sprite--roar) {
+  filter: drop-shadow(0 0 0.2rem rgb(201 74 74 / 0.8));
+}
+
+/* El fuego sale de la boca abierta (borde izquierdo, a 37% de la altura),
+   inclinado hacia el suelo, donde está el caballero */
 .battle__fire {
   position: absolute;
-  top: 62%;
-  right: 94%;
-  width: calc(var(--dragon-width) / 2);
-  aspect-ratio: 20 / 8;
-  background: url("../assets/img/fire.svg") 0 0 / 100% 100% no-repeat;
+  top: 37%;
+  right: 97%;
+  width: calc(var(--dragon-width) * 0.62);
+  aspect-ratio: 28 / 11;
+  background: url("../assets/img/fire.svg") 0 0 / 200% 100% no-repeat;
   transform-origin: right center;
-  transform: translateY(-50%) scaleX(0);
+  transform: translateY(-50%) rotate(-26deg) scaleX(0);
   opacity: 0;
 }
 

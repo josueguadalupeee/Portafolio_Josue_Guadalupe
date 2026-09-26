@@ -15,13 +15,14 @@
 }
 
 /* ---------- Batalla: ciclo de 6 s ----------
-   0–26%  el dragón flota         26–46% lanza fuego y el caballero salta
-   52–70% estocada y el dragón retrocede con un destello   76–100% vuelven */
+   0–22%  el dragón flota amenazante
+   22–46% ruge, se abalanza y lanza fuego; el caballero salta para esquivarlo
+   52–70% estocada: el dragón retrocede con un destello   76–100% vuelven */
 @keyframes knight-moves {
   0%, 26% { transform: translate(0, 0); }
-  32%, 40% { transform: translate(0, -3.5rem); }
+  32%, 40% { transform: translate(0, -4.75rem); }
   46%, 52% { transform: translate(0, 0); }
-  58%, 68% { transform: translate(5rem, 0); }
+  58%, 68% { transform: translate(10rem, 0); }
   76%, 100% { transform: translate(0, 0); }
 }
 
@@ -32,16 +33,30 @@
 }
 
 @keyframes dragon-hover {
-  0%, 30%, 58%, 80%, 100% { transform: translate(0, 0); filter: none; }
-  15%, 45% { transform: translate(0, -0.6rem); }
+  0%, 58%, 80%, 100% { transform: translate(0, 0); filter: none; }
+  12% { transform: translate(0, -0.6rem); }
+  24%, 44% { transform: translate(-1rem, -0.4rem); }
   60%, 64% { transform: translate(1.5rem, -0.3rem); filter: brightness(2.2); }
   67% { filter: none; }
 }
 
+/* Alterna el sprite normal y el de mandíbula abierta */
+@keyframes dragon-calm {
+  0% { opacity: 1; }
+  24% { opacity: 0; }
+  46% { opacity: 1; }
+}
+
+@keyframes dragon-roar {
+  0% { opacity: 0; }
+  24% { opacity: 1; }
+  46% { opacity: 0; }
+}
+
 @keyframes fire-breath {
-  0%, 24% { transform: translateY(-50%) scaleX(0); opacity: 0; }
-  28%, 42% { transform: translateY(-50%) scaleX(1); opacity: 1; }
-  46%, 100% { transform: translateY(-50%) scaleX(0); opacity: 0; }
+  0%, 26% { transform: translateY(-50%) rotate(-26deg) scaleX(0); opacity: 0; }
+  30%, 42% { transform: translateY(-50%) rotate(-26deg) scaleX(1); opacity: 1; }
+  46%, 100% { transform: translateY(-50%) rotate(-26deg) scaleX(0); opacity: 0; }
 }
 
 @keyframes flag-wave {
@@ -89,8 +104,21 @@
 .battle__knight { animation: knight-moves 6s ease-in-out infinite; }
 .battle__knight-sprite { animation: knight-pose 6s step-end infinite; }
 .battle__dragon { animation: dragon-hover 6s ease-in-out infinite; }
-.battle__dragon-sprite { animation: sprite-cycle 0.5s steps(2) infinite; }
-.battle__fire { animation: fire-breath 6s linear infinite; }
+.battle__dragon-sprite {
+  animation:
+    sprite-cycle 0.5s steps(2) infinite,
+    dragon-calm 6s step-end infinite;
+}
+.battle__dragon-sprite--roar {
+  animation:
+    sprite-cycle 0.5s steps(2) infinite,
+    dragon-roar 6s step-end infinite;
+}
+.battle__fire {
+  animation:
+    fire-breath 6s linear infinite,
+    sprite-cycle 0.2s steps(2) infinite;
+}
 
 .castle__flag {
   transform-box: fill-box;

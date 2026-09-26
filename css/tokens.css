@@ -110,8 +110,8 @@
   --avatar-size: clamp(10rem, 30vw, 16rem);
   --icon-size: 2rem;
   --sprite-size: 4rem;          /* caballero: 16 px de sprite → 0.25rem por píxel */
-  --dragon-width: 12rem;        /* dragón: 32 px de sprite → 0.375rem por píxel */
-  --battle-width: 22rem;
+  --dragon-width: 13rem;        /* dragón: 52 px de sprite → 0.25rem por píxel (misma escala) */
+  --battle-width: 23rem;
   --battle-height: 11rem;
   --touch-target: 2.75rem;
 
