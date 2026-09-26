@@ -388,6 +388,35 @@
               </div>
             </div>
           </article>
+
+          <article class="project-card reveal" data-tech="python django postgresql js html css">
+            <figure class="project-card__media">
+              <img src="assets/img/project-uniforms.svg" width="320" height="180" loading="lazy"
+                   alt="Ilustración pixel art de una tienda de uniformes: uniformes azul, rojo y verde colgados junto a una factura">
+            </figure>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Casa del Uniformado</h3>
+              <p class="project-card__text">Sistema de inventario y facturación para un local que vende uniformes de policía, tránsito, bomberos y guardias de seguridad.</p>
+              <p class="project-card__text"><span class="project-card__label">Problema:</span> controlar el stock de cada prenda por talla, color y sección, facturar con IVA sin cálculos manuales y llevar el registro de clientes que deben.</p>
+              <ul class="badge-list" aria-label="Tecnologías utilizadas">
+                <li class="badge">Python</li><li class="badge">Django</li><li class="badge">PostgreSQL</li><li class="badge">JavaScript</li><li class="badge">GitHub Actions</li>
+              </ul>
+              <div class="project-card__details" hidden>
+                <h4>Características</h4>
+                <ul>
+                  <li>Inventario por variantes: producto, talla, color y sección.</li>
+                  <li>Facturación con carrito, búsqueda dinámica (fetch/AJAX) y cálculo del IVA guardado por línea de venta.</li>
+                  <li>Módulo de deudores con registro de abonos.</li>
+                  <li>Facturas de proveedores para registrar compras.</li>
+                  <li>Alerta diaria de reposición de stock por correo, programada con GitHub Actions.</li>
+                </ul>
+              </div>
+              <div class="project-card__actions">
+                <button class="btn btn--primary btn--sm" type="button" data-project-open>Ver detalles</button>
+                <a class="btn btn--ghost btn--sm" href="https://github.com/josueguadalupeee/sistema_de_gestion_casa_del_uniformado" target="_blank" rel="noopener noreferrer">Repositorio</a>
+              </div>
+            </div>
+          </article>
         </div>
         <p class="projects-empty text-muted" hidden>No hay proyectos con esa tecnología… ¡todavía!</p>
       </div>
