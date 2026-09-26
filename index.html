@@ -353,6 +353,7 @@
           <button class="chip" type="button" data-filter="python" aria-pressed="false">Python</button>
           <button class="chip" type="button" data-filter="django" aria-pressed="false">Django</button>
           <button class="chip" type="button" data-filter="postgresql" aria-pressed="false">PostgreSQL</button>
+          <button class="chip" type="button" data-filter="sqlite" aria-pressed="false">SQLite</button>
           <button class="chip" type="button" data-filter="bootstrap" aria-pressed="false">Bootstrap</button>
           <button class="chip" type="button" data-filter="js" aria-pressed="false">JavaScript</button>
         </div>
@@ -414,6 +415,36 @@
               <div class="project-card__actions">
                 <button class="btn btn--primary btn--sm" type="button" data-project-open>Ver detalles</button>
                 <a class="btn btn--ghost btn--sm" href="https://github.com/josueguadalupeee/sistema_de_gestion_casa_del_uniformado" target="_blank" rel="noopener noreferrer">Repositorio</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-tech="python django sqlite js html css">
+            <figure class="project-card__media">
+              <img src="assets/img/project-barber.svg" width="320" height="180" loading="lazy"
+                   alt="Ilustración pixel art de una barbería: poste de barbero, sillón rojo y una cartilla de fidelidad con sellos dorados">
+            </figure>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Fierro Barbería</h3>
+              <p class="project-card__text">Sistema de gestión para una barbería: inventario, venta de servicios y productos, clientes con cartilla de fidelidad y colaboradores.</p>
+              <p class="project-card__text"><span class="project-card__label">Problema:</span> llevar el control de ventas, stock y cortes por barbero, y premiar a los clientes frecuentes sin tarjetas de papel.</p>
+              <ul class="badge-list" aria-label="Tecnologías utilizadas">
+                <li class="badge">Python</li><li class="badge">Django</li><li class="badge">SQLite</li><li class="badge">JavaScript</li><li class="badge">CSS3</li>
+              </ul>
+              <div class="project-card__details" hidden>
+                <h4>Características</h4>
+                <ul>
+                  <li>Panel general con indicadores y gráfico de ventas de la semana calculados desde la base de datos.</li>
+                  <li>Registro de ventas con varios servicios que actualiza automáticamente la cartilla de fidelidad del cliente.</li>
+                  <li>Inventario con movimientos de entrada, salida y ajuste, y filtro por categoría.</li>
+                  <li>Cartilla visual de sellos por cliente.</li>
+                  <li>Cortes y ventas del día por colaborador.</li>
+                  <li>Interfaz con barra lateral en escritorio y pestañas inferiores en móvil.</li>
+                </ul>
+              </div>
+              <div class="project-card__actions">
+                <button class="btn btn--primary btn--sm" type="button" data-project-open>Ver detalles</button>
+                <a class="btn btn--ghost btn--sm" href="https://github.com/josueguadalupeee/Sistema-de-gestion-Barberia" target="_blank" rel="noopener noreferrer">Repositorio</a>
               </div>
             </div>
           </article>
