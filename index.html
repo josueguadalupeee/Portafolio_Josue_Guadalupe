@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Josué Fernando Guadalupe · Portafolio de Desarrollo Web</title>
+  <meta name="description" content="Portafolio de Josué Fernando Guadalupe, estudiante y desarrollador web frontend. Proyectos, habilidades y contacto con temática medieval pixel art.">
+  <meta name="author" content="Josué Fernando Guadalupe">
+  <meta name="theme-color" content="#2a2540">
+  <meta property="og:title" content="Josué Fernando Guadalupe · Portafolio">
+  <meta property="og:description" content="Desarrollador web frontend en formación. Conoce mis proyectos y habilidades.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/img/shield.svg" type="image/svg+xml">
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400&family=MedievalSharp&family=Pixelify+Sans:wght@400;600&display=swap">
+
+  <!-- Estilos: tokens → base → componentes → layout → animaciones -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <!-- Aplica tema y movimiento guardados antes de pintar (evita parpadeo) -->
+  <script src="js/preferences.js"></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/github.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- ===================== ENCABEZADO Y NAVEGACIÓN ===================== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="#inicio" aria-label="Josué Guadalupe, ir al inicio">
+        <img class="pixelated" src="assets/img/shield.svg" alt="" width="32" height="30">
+        <span>Josué G.</span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#inicio">Inicio</a></li>
+          <li><a class="nav__link" href="#sobre-mi">Sobre mí</a></li>
+          <li><a class="nav__link" href="#habilidades">Habilidades</a></li>
+          <li><a class="nav__link" href="#proyectos">Proyectos</a></li>
+          <li><a class="nav__link" href="#github">GitHub</a></li>
+          <li><a class="nav__link" href="#design-system">Design System</a></li>
+          <li><a class="nav__link" href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <button class="btn btn--icon theme-toggle" type="button" aria-pressed="false" aria-label="Tema noche" title="Cambiar tema día / noche">
+          <svg class="icon-sun" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" fill="currentColor"><path d="M7 0h2v3H7zM7 13h2v3H7zM0 7h3v2H0zM13 7h3v2h-3zM2 2h2v2H2zM12 2h2v2h-2zM2 12h2v2H2zM12 12h2v2h-2zM5 4h6v1h1v6h-1v1H5v-1H4V5h1z"/></svg>
+          <svg class="icon-moon" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" fill="currentColor"><path d="M6 1h4v1H8v1H7v2H6v6h1v2h1v1h2v1H6v-1H4v-1H3v-2H2V5h1V3h1V2h2z"/></svg>
+        </button>
+        <button class="btn btn--icon motion-toggle" type="button" aria-pressed="false" aria-label="Pausar animaciones" title="Pausar / reanudar animaciones">
+          <svg class="icon-pause" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" fill="currentColor"><path d="M3 2h4v12H3zM9 2h4v12H9z"/></svg>
+          <svg class="icon-play" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" fill="currentColor"><path d="M3 1h2v1h2v2h2v2h2v2h2v1h-2v2H9v2H7v2H5v1H3z"/></svg>
+        </button>
+        <button class="btn btn--icon nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menú">
+          <span class="nav-toggle__bars" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ===================== INICIO / PRESENTACIÓN ===================== -->
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="scene" aria-hidden="true">
+        <div class="scene__stars"></div>
+        <div class="scene__celestial"></div>
+        <div class="cloud cloud--1"></div>
+        <div class="cloud cloud--2"></div>
+        <div class="cloud cloud--3"></div>
+
+        <svg class="scene__mountains" viewBox="0 0 1440 320" preserveAspectRatio="none" focusable="false">
+          <polygon class="mountain--far" points="0,200 120,110 220,170 360,60 500,160 640,90 780,180 920,70 1060,150 1200,80 1320,140 1440,100 1440,320 0,320"/>
+          <polygon class="mountain--near" points="0,260 160,180 300,250 460,170 620,260 760,200 900,270 1080,190 1240,260 1440,210 1440,320 0,320"/>
+        </svg>
+
+        <svg class="scene__castle" viewBox="0 0 260 200" shape-rendering="crispEdges" focusable="false">
+          <g class="castle__body">
+            <rect x="40" y="110" width="180" height="90"/>
+            <rect x="40" y="100" width="12" height="10"/><rect x="64" y="100" width="12" height="10"/><rect x="184" y="100" width="12" height="10"/><rect x="208" y="100" width="12" height="10"/>
+            <rect x="10" y="60" width="50" height="140"/>
+            <rect x="10" y="48" width="12" height="12"/><rect x="29" y="48" width="12" height="12"/><rect x="48" y="48" width="12" height="12"/>
+            <rect x="200" y="60" width="50" height="140"/>
+            <rect x="200" y="48" width="12" height="12"/><rect x="219" y="48" width="12" height="12"/><rect x="238" y="48" width="12" height="12"/>
+            <rect x="95" y="40" width="70" height="160"/>
+            <rect x="95" y="28" width="12" height="12"/><rect x="124" y="28" width="12" height="12"/><rect x="153" y="28" width="12" height="12"/>
+          </g>
+          <g class="castle__window">
+            <rect x="28" y="80" width="12" height="18"/><rect x="218" y="80" width="12" height="18"/>
+            <rect x="123" y="60" width="14" height="22"/><rect x="104" y="100" width="10" height="14"/><rect x="146" y="100" width="10" height="14"/>
+            <rect x="70" y="130" width="10" height="14"/><rect x="180" y="130" width="10" height="14"/>
+          </g>
+          <rect class="castle__gate" x="115" y="150" width="30" height="50"/>
+          <rect class="castle__gate" x="120" y="144" width="20" height="6"/>
+          <rect class="castle__pole" x="34" y="10" width="3" height="38"/>
+          <rect class="castle__flag" x="37" y="10" width="22" height="13"/>
+          <rect class="castle__pole" x="128" y="0" width="3" height="28"/>
+          <rect class="castle__flag castle__flag--gold" x="131" y="0" width="20" height="12"/>
+          <rect class="castle__pole" x="224" y="10" width="3" height="38"/>
+          <rect class="castle__flag" x="227" y="10" width="22" height="13"/>
+        </svg>
+
+        <div class="scene__ground"></div>
+        <div class="knight pixelated"></div>
+        <div class="scene__embers">
+          <span class="ember"></span><span class="ember"></span><span class="ember"></span>
+          <span class="ember"></span><span class="ember"></span><span class="ember"></span>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="hero__content reveal">
+          <p class="hero__kicker">¡Bienvenido, viajero!</p>
+          <h1 id="hero-title">Josué Fernando Guadalupe</h1>
+          <p class="hero__role">Desarrollador Web Frontend en formación</p>
+          <p>
+            Construyo sitios web accesibles, responsivos y con personalidad.
+            Este portafolio es mi castillo: aquí guardo mis gestas (proyectos),
+            mi arsenal (habilidades) y un cuervo mensajero para que me escribas.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#proyectos">Ver mis proyectos</a>
+            <a class="btn btn--secondary" href="#contacto">Contactarme</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SOBRE MÍ ===================== -->
+    <section id="sobre-mi" aria-labelledby="about-title">
+      <div class="container">
+        <header class="section-heading reveal">
+          <span class="section-heading__kicker">Capítulo I · La crónica</span>
+          <h2 id="about-title">Sobre mí</h2>
+        </header>
+
+        <div class="about">
+          <figure class="about__figure reveal">
+            <img class="pixelated" src="assets/img/avatar.svg" width="256" height="256"
+                 alt="Avatar en pixel art de Josué: un caballero con armadura plateada, túnica carmesí con emblema dorado y espada en alto">
+            <figcaption>Sir Josué, caballero del código</figcaption>
+          </figure>
+
+          <div class="about__main">
+            <article class="panel reveal">
+              <h3>Perfil profesional</h3>
+              <p>
+                Soy estudiante de <strong>Ingeniería en Software / Desarrollo de Software</strong>
+                con especial interés en el <strong>desarrollo web frontend</strong>. Disfruto transformar
+                ideas en interfaces claras, accesibles y agradables de usar, cuidando tanto el código
+                como la experiencia de quien las visita.
+              </p>
+              <p>
+                Actualmente fortalezco mis bases en HTML semántico, CSS moderno y JavaScript, y exploro
+                el backend con Python y bases de datos relacionales. Me motiva aprender construyendo
+                proyectos reales y trabajar en equipo usando Git y GitHub.
+              </p>
+            </article>
+
+            <article class="panel reveal">
+              <h3>Formación</h3>
+              <ol class="timeline">
+                <li>
+                  <h4>Ingeniería en Software</h4>
+                  <p class="text-muted">Universidad · 2023 – actualidad</p>
+                  <p>Programación, estructuras de datos, bases de datos y desarrollo web.</p>
+                </li>
+                <li>
+                  <h4>Cursos complementarios</h4>
+                  <p class="text-muted">Autodidacta · plataformas en línea</p>
+                  <p>JavaScript moderno, diseño responsive, Git y GitHub.</p>
+                </li>
+                <li>
+                  <h4>Bachillerato</h4>
+                  <p class="text-muted">Unidad Educativa Jose Maria Velasco Ibarra · 2019 – 2022</p>
+                  <p>Bachillerato en ciencias.</p>
+                </li>
+              </ol>
+            </article>
+
+            <aside class="panel reveal" aria-labelledby="sheet-title">
+              <h3 id="sheet-title">Ficha del personaje</h3>
+              <dl class="char-sheet">
+                <dt>Clase</dt>
+                <dd>Desarrollador Full Stack</dd>
+                <dt>Gremio</dt>
+                <dd>Estudiante universitario</dd>
+                <dt>Idiomas</dt>
+                <dd>Español (nativo)</dd>
+                <dt>Intereses</dt>
+                <dd>UI/UX, accesibilidad web, backend</dd>
+                <dt>Misión</dt>
+                <dd>En busca de oportunidades laborales</dd>
+              </dl>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HABILIDADES ===================== -->
+    <section id="habilidades" aria-labelledby="skills-title">
+      <div class="container">
+        <header class="section-heading reveal">
+          <span class="section-heading__kicker">Capítulo II · El arsenal</span>
+          <h2 id="skills-title">Habilidades</h2>
+          <p class="section-heading__lead">Tecnologías que domino o estoy aprendiendo, con un nivel honesto de dominio.</p>
+        </header>
+
+        <aside class="panel level-legend reveal" aria-labelledby="legend-title">
+          <h3 id="legend-title">¿Cómo leer los niveles?</h3>
+          <dl>
+            <div><dt><span class="skill-level" data-level="1" aria-hidden="true"><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span></span> Aprendiz</dt><dd>Conozco los fundamentos y sigo tutoriales o guías.</dd></div>
+            <div><dt><span class="skill-level" data-level="2" aria-hidden="true"><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span></span> Escudero</dt><dd>La he usado en proyectos académicos con algo de apoyo.</dd></div>
+            <div><dt><span class="skill-level" data-level="3" aria-hidden="true"><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span></span> Caballero</dt><dd>Construyo proyectos completos de forma autónoma.</dd></div>
+            <div><dt><span class="skill-level" data-level="4" aria-hidden="true"><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span></span> Maestro</dt><dd>Dominio profundo; puedo enseñarla a otras personas.</dd></div>
+          </dl>
+        </aside>
+
+        <div class="skills-grid">
+          <article class="skill-category reveal">
+            <h3>Frontend</h3>
+            <ul class="skill-list">
+              <li class="skill">
+                <img class="skill__icon" src="assets/icons/html5.svg" alt="Logo de HTML5" width="32" height="32" loading="lazy">
+                <h4 class="skill__name">HTML5</h4>
+                <div class="skill__meta">
+                  <span class="badge">Frontend</span>
+                  <span class="skill-level" data-level="3" role="img" aria-label="Nivel 3 de 4: Caballero"><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span></span>
+                  <span class="skill-level__label">Caballero</span>
+                </div>
+                <p class="skill__desc">Estructura semántica, formularios accesibles y SEO básico.</p>
+              </li>
+              <li class="skill">
+                <img class="skill__icon" src="assets/icons/css3.svg" alt="Logo de CSS3" width="32" height="32" loading="lazy">
+                <h4 class="skill__name">CSS3</h4>
+                <div class="skill__meta">
+                  <span class="badge">Frontend</span>
+                  <span class="skill-level" data-level="3" role="img" aria-label="Nivel 3 de 4: Caballero"><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span></span>
+                  <span class="skill-level__label">Caballero</span>
+                </div>
+                <p class="skill__desc">Flexbox, Grid, Custom Properties, media queries y animaciones.</p>
+              </li>
+              <li class="skill">
+                <img class="skill__icon" src="assets/icons/javascript.svg" alt="Logo de JavaScript" width="32" height="32" loading="lazy">
+                <h4 class="skill__name">JavaScript</h4>
+                <div class="skill__meta">
+                  <span class="badge">Frontend</span>
+                  <span class="skill-level" data-level="2" role="img" aria-label="Nivel 2 de 4: Escudero"><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span></span>
+                  <span class="skill-level__label">Escudero</span>
+                </div>
+                <p class="skill__desc">Manipulación del DOM, eventos, fetch y localStorage.</p>
+              </li>
+            </ul>
+          </article>
+
+          <article class="skill-category reveal">
+            <h3>Backend y bases de datos</h3>
+            <ul class="skill-list">
+              <li class="skill">
+                <img class="skill__icon" src="assets/icons/python.svg" alt="Logo de Python" width="32" height="32" loading="lazy">
+                <h4 class="skill__name">Python</h4>
+                <div class="skill__meta">
+                  <span class="badge">Backend</span>
+                  <span class="skill-level" data-level="2" role="img" aria-label="Nivel 2 de 4: Escudero"><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span></span>
+                  <span class="skill-level__label">Escudero</span>
+                </div>
+                <p class="skill__desc">Lógica de programación, funciones y conexión a bases de datos.</p>
+              </li>
+              <li class="skill">
+                <img class="skill__icon" src="assets/icons/nodejs.svg" alt="Logo de Node.js" width="32" height="32" loading="lazy">
+                <h4 class="skill__name">Node.js</h4>
+                <div class="skill__meta">
+                  <span class="badge">Backend</span>
+                  <span class="skill-level" data-level="1" role="img" aria-label="Nivel 1 de 4: Aprendiz"><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span></span>
+                  <span class="skill-level__label">Aprendiz</span>
+                </div>
+                <p class="skill__desc">Primeros pasos: npm, módulos y servidores sencillos.</p>
+              </li>
+              <li class="skill">
+                <img class="skill__icon" src="assets/icons/mysql.svg" alt="Logo de MySQL" width="32" height="32" loading="lazy">
+                <h4 class="skill__name">MySQL</h4>
+                <div class="skill__meta">
+                  <span class="badge">Bases de datos</span>
+                  <span class="skill-level" data-level="2" role="img" aria-label="Nivel 2 de 4: Escudero"><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span></span>
+                  <span class="skill-level__label">Escudero</span>
+                </div>
+                <p class="skill__desc">Modelado relacional, consultas SELECT con JOIN y CRUD.</p>
+              </li>
+            </ul>
+          </article>
+
+          <article class="skill-category reveal">
+            <h3>Herramientas y diseño</h3>
+            <ul class="skill-list">
+              <li class="skill">
+                <img class="skill__icon" src="assets/icons/git.svg" alt="Logo de Git" width="32" height="32" loading="lazy">
+                <h4 class="skill__name">Git y GitHub</h4>
+                <div class="skill__meta">
+                  <span class="badge">Herramientas</span>
+                  <span class="skill-level" data-level="2" role="img" aria-label="Nivel 2 de 4: Escudero"><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span></span>
+                  <span class="skill-level__label">Escudero</span>
+                </div>
+                <p class="skill__desc">Commits, ramas, repositorios remotos y GitHub Pages.</p>
+              </li>
+              <li class="skill">
+                <img class="skill__icon" src="assets/icons/vscode.svg" alt="Logo de Visual Studio Code" width="32" height="32" loading="lazy">
+                <h4 class="skill__name">VS Code</h4>
+                <div class="skill__meta">
+                  <span class="badge">Herramientas</span>
+                  <span class="skill-level" data-level="3" role="img" aria-label="Nivel 3 de 4: Caballero"><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span></span>
+                  <span class="skill-level__label">Caballero</span>
+                </div>
+                <p class="skill__desc">Extensiones, depuración y atajos para trabajar rápido.</p>
+              </li>
+              <li class="skill">
+                <img class="skill__icon" src="assets/icons/figma.svg" alt="Logo de Figma" width="32" height="32" loading="lazy">
+                <h4 class="skill__name">Figma</h4>
+                <div class="skill__meta">
+                  <span class="badge">Diseño</span>
+                  <span class="skill-level" data-level="1" role="img" aria-label="Nivel 1 de 4: Aprendiz"><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span></span>
+                  <span class="skill-level__label">Aprendiz</span>
+                </div>
+                <p class="skill__desc">Wireframes y prototipos sencillos antes de programar.</p>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROYECTOS DESTACADOS ===================== -->
+    <section id="proyectos" aria-labelledby="projects-title">
+      <div class="container">
+        <header class="section-heading reveal">
+          <span class="section-heading__kicker">Capítulo III · Las gestas</span>
+          <h2 id="projects-title">Proyectos destacados</h2>
+          <p class="section-heading__lead">Filtra por tecnología y abre cada proyecto para leer su crónica completa.</p>
+        </header>
+
+        <div class="filter-bar" role="group" aria-label="Filtrar proyectos por tecnología">
+          <button class="chip" type="button" data-filter="all" aria-pressed="true">Todos</button>
+          <button class="chip" type="button" data-filter="html" aria-pressed="false">HTML</button>
+          <button class="chip" type="button" data-filter="css" aria-pressed="false">CSS</button>
+          <button class="chip" type="button" data-filter="js" aria-pressed="false">JavaScript</button>
+          <button class="chip" type="button" data-filter="api" aria-pressed="false">API</button>
+          <button class="chip" type="button" data-filter="python" aria-pressed="false">Python</button>
+          <button class="chip" type="button" data-filter="mysql" aria-pressed="false">MySQL</button>
+        </div>
+        <p class="visually-hidden" id="filter-status" role="status" aria-live="polite"></p>
+
+        <div class="projects-grid">
+          <!-- Card de proyecto (componente reutilizable) -->
+          <article class="project-card reveal" data-tech="html css js">
+            <figure class="project-card__media">
+              <img src="assets/img/project-portfolio.svg" width="320" height="180" loading="lazy"
+                   alt="Captura ilustrada del portafolio: castillo pixelado de noche con ventanas iluminadas">
+            </figure>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Portafolio Medieval</h3>
+              <p class="project-card__text">Este mismo sitio: un portafolio con escena 2D animada, tema día/noche y un Design System documentado.</p>
+              <p class="project-card__text"><span class="project-card__label">Problema:</span> presentar mi perfil profesional de forma memorable, accesible y responsive.</p>
+              <ul class="badge-list" aria-label="Tecnologías utilizadas">
+                <li class="badge">HTML5</li><li class="badge">CSS3</li><li class="badge">JavaScript</li>
+              </ul>
+              <div class="project-card__details" hidden>
+                <h4>Características</h4>
+                <ul>
+                  <li>Escena animada con CSS (nubes, caballero, banderas y antorchas).</li>
+                  <li>Tema claro/oscuro y pausa de animaciones guardados en localStorage.</li>
+                  <li>Filtro de proyectos, modal con &lt;dialog&gt; y validación de formulario.</li>
+                  <li>Repositorios obtenidos en vivo desde la API de GitHub.</li>
+                </ul>
+              </div>
+              <div class="project-card__actions">
+                <button class="btn btn--primary btn--sm" type="button" data-project-open>Ver detalles</button>
+                <a class="btn btn--ghost btn--sm" href="https://github.com/josueguadalupeee/Portafolio_Josue_Guadalupe" target="_blank" rel="noopener noreferrer">Repositorio</a>
+                <a class="btn btn--ghost btn--sm" href="https://josueguadalupeee.github.io/Portafolio_Josue_Guadalupe/" target="_blank" rel="noopener noreferrer">Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-tech="html css js">
+            <figure class="project-card__media">
+              <img src="assets/img/project-tasks.svg" width="320" height="180" loading="lazy"
+                   alt="Captura ilustrada del gestor de tareas: pergamino con una lista de pendientes marcados">
+            </figure>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Bitácora del Escudero</h3>
+              <p class="project-card__text">Aplicación de lista de tareas para crear, completar, filtrar y eliminar pendientes.</p>
+              <p class="project-card__text"><span class="project-card__label">Problema:</span> organizar entregas académicas sin perder la información al cerrar el navegador.</p>
+              <ul class="badge-list" aria-label="Tecnologías utilizadas">
+                <li class="badge">HTML5</li><li class="badge">CSS3</li><li class="badge">JavaScript</li>
+              </ul>
+              <div class="project-card__details" hidden>
+                <h4>Características</h4>
+                <ul>
+                  <li>CRUD de tareas manipulando el DOM.</li>
+                  <li>Persistencia de datos con localStorage.</li>
+                  <li>Filtros: todas, pendientes y completadas.</li>
+                </ul>
+              </div>
+              <div class="project-card__actions">
+                <button class="btn btn--primary btn--sm" type="button" data-project-open>Ver detalles</button>
+                <a class="btn btn--ghost btn--sm" href="https://github.com/josueguadalupeee/gestor-tareas" target="_blank" rel="noopener noreferrer">Repositorio</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-tech="python mysql">
+            <figure class="project-card__media">
+              <img src="assets/img/project-library.svg" width="320" height="180" loading="lazy"
+                   alt="Captura ilustrada del sistema de biblioteca: estantería de madera con libros de colores">
+            </figure>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Biblioteca Arcana</h3>
+              <p class="project-card__text">Sistema de consola para gestionar libros, lectores y préstamos de una biblioteca.</p>
+              <p class="project-card__text"><span class="project-card__label">Problema:</span> llevar el control de préstamos que antes se registraban en papel.</p>
+              <ul class="badge-list" aria-label="Tecnologías utilizadas">
+                <li class="badge">Python</li><li class="badge">MySQL</li>
+              </ul>
+              <div class="project-card__details" hidden>
+                <h4>Características</h4>
+                <ul>
+                  <li>Base de datos relacional con tablas de libros, lectores y préstamos.</li>
+                  <li>Consultas con JOIN para reportes de libros prestados.</li>
+                  <li>Validación de entradas y manejo de errores.</li>
+                </ul>
+              </div>
+              <div class="project-card__actions">
+                <button class="btn btn--primary btn--sm" type="button" data-project-open>Ver detalles</button>
+                <a class="btn btn--ghost btn--sm" href="https://github.com/josueguadalupeee/biblioteca" target="_blank" rel="noopener noreferrer">Repositorio</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-tech="html css js api">
+            <figure class="project-card__media">
+              <img src="assets/img/project-weather.svg" width="320" height="180" loading="lazy"
+                   alt="Captura ilustrada de la app del clima: sol pixelado sobre colinas y un panel con la temperatura">
+            </figure>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Oráculo del Clima</h3>
+              <p class="project-card__text">Consulta el clima actual de cualquier ciudad usando una API pública.</p>
+              <p class="project-card__text"><span class="project-card__label">Problema:</span> practicar el consumo de APIs y mostrar datos externos de forma clara.</p>
+              <ul class="badge-list" aria-label="Tecnologías utilizadas">
+                <li class="badge">HTML5</li><li class="badge">CSS3</li><li class="badge">JavaScript</li><li class="badge">API REST</li>
+              </ul>
+              <div class="project-card__details" hidden>
+                <h4>Características</h4>
+                <ul>
+                  <li>Peticiones asíncronas con fetch y async/await.</li>
+                  <li>Estados de carga y de error.</li>
+                  <li>Diseño responsive con CSS Grid.</li>
+                </ul>
+              </div>
+              <div class="project-card__actions">
+                <button class="btn btn--primary btn--sm" type="button" data-project-open>Ver detalles</button>
+                <a class="btn btn--ghost btn--sm" href="https://github.com/josueguadalupeee/clima" target="_blank" rel="noopener noreferrer">Repositorio</a>
+                <a class="btn btn--ghost btn--sm" href="https://josueguadalupeee.github.io/clima/" target="_blank" rel="noopener noreferrer">Demo</a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <p class="projects-empty text-muted" hidden>No hay proyectos con esa tecnología… ¡todavía!</p>
+      </div>
+
+      <!-- Modal de detalle de proyecto (se llena con JavaScript) -->
+      <dialog class="modal" id="project-modal" aria-labelledby="modal-title">
+        <header class="modal__header">
+          <h3 class="modal__title" id="modal-title">Proyecto</h3>
+          <button class="btn btn--icon" type="button" data-modal-close aria-label="Cerrar detalles">
+            <svg viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" fill="currentColor"><path d="M2 2h3v1h1v1h1v1h2V4h1V3h1V2h3v3h-1v1h-1v1h-1v2h1v1h1v1h1v3h-3v-1h-1v-1H9v-1H7v1H6v1H5v1H2v-3h1v-1h1V9h1V7H4V6H3V5H2z"/></svg>
+          </button>
+        </header>
+        <div class="modal__body" id="modal-body"></div>
+      </dialog>
+    </section>
+
+    <!-- ===================== REPOSITORIOS DE GITHUB ===================== -->
+    <section id="github" aria-labelledby="github-title" data-github-user="josueguadalupeee">
+      <div class="container">
+        <header class="section-heading reveal">
+          <span class="section-heading__kicker">Capítulo IV · Los archivos del reino</span>
+          <h2 id="github-title">Mis repositorios en GitHub</h2>
+          <p class="section-heading__lead">Cargados en tiempo real desde la API pública de GitHub.</p>
+        </header>
+
+        <article class="panel gh-profile" id="gh-profile" hidden>
+          <img class="gh-profile__avatar" id="gh-avatar" src="assets/img/avatar.svg" alt="Foto de perfil de GitHub" width="80" height="80">
+          <div class="gh-profile__info">
+            <h3 id="gh-name">GitHub</h3>
+            <p class="text-muted" id="gh-stats"></p>
+          </div>
+          <a class="btn btn--secondary" id="gh-link" href="https://github.com/" target="_blank" rel="noopener noreferrer">Ver perfil en GitHub</a>
+        </article>
+
+        <form class="gh-toolbar" id="gh-toolbar" aria-label="Opciones de repositorios">
+          <div class="form-field">
+            <label class="form-label" for="gh-sort">Ordenar por</label>
+            <select class="form-select" id="gh-sort" name="sort">
+              <option value="updated">Actualizados recientemente</option>
+              <option value="stars">Más estrellas</option>
+              <option value="name">Nombre (A–Z)</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="gh-lang">Lenguaje</label>
+            <select class="form-select" id="gh-lang" name="lang">
+              <option value="all">Todos</option>
+            </select>
+          </div>
+        </form>
+
+        <p class="alert" id="gh-status" role="status" aria-live="polite"></p>
+        <ul class="repos-grid" id="gh-repos" aria-label="Repositorios públicos"></ul>
+        <div class="gh-more">
+          <button class="btn btn--ghost" type="button" id="gh-more" hidden>Mostrar más repositorios</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DESIGN SYSTEM / COMPONENTES ===================== -->
+    <section id="design-system" aria-labelledby="ds-title">
+      <div class="container">
+        <header class="section-heading reveal">
+          <span class="section-heading__kicker">Capítulo V · El códice</span>
+          <h2 id="ds-title">Design System / Componentes</h2>
+          <p class="section-heading__lead">
+            Tokens y componentes reales del sitio. Cambia entre tema día y noche:
+            los valores de color se actualizan automáticamente.
+          </p>
+        </header>
+
+        <!-- Colores -->
+        <section class="ds-block" aria-labelledby="ds-colors">
+          <h3 id="ds-colors">Colores</h3>
+          <div class="swatch-grid">
+            <figure class="swatch"><div class="swatch__color swatch__color--primary"></div><figcaption>Primary <code data-token="--color-primary">#c8962e</code></figcaption></figure>
+            <figure class="swatch"><div class="swatch__color swatch__color--secondary"></div><figcaption>Secondary <code data-token="--color-secondary">#9b2c2c</code></figcaption></figure>
+            <figure class="swatch"><div class="swatch__color swatch__color--background"></div><figcaption>Background <code data-token="--color-background">#f3e3bf</code></figcaption></figure>
+            <figure class="swatch"><div class="swatch__color swatch__color--surface"></div><figcaption>Surface <code data-token="--color-surface">#fbf3e0</code></figcaption></figure>
+            <figure class="swatch"><div class="swatch__color swatch__color--surface-alt"></div><figcaption>Surface alt <code data-token="--color-surface-alt">#e6cf9e</code></figcaption></figure>
+            <figure class="swatch"><div class="swatch__color swatch__color--text"></div><figcaption>Text <code data-token="--color-text">#2b1d0e</code></figcaption></figure>
+            <figure class="swatch"><div class="swatch__color swatch__color--text-muted"></div><figcaption>Text muted <code data-token="--color-text-muted">#5c4630</code></figcaption></figure>
+            <figure class="swatch"><div class="swatch__color swatch__color--link"></div><figcaption>Link <code data-token="--color-link">#9b2c2c</code></figcaption></figure>
+            <figure class="swatch"><div class="swatch__color swatch__color--success"></div><figcaption>Success <code data-token="--color-success">#3f7a3a</code></figcaption></figure>
+            <figure class="swatch"><div class="swatch__color swatch__color--error"></div><figcaption>Error <code data-token="--color-error">#b3261e</code></figcaption></figure>
+          </div>
+        </section>
+
+        <!-- Tipografía -->
+        <section class="ds-block" aria-labelledby="ds-type">
+          <h3 id="ds-type">Tipografía</h3>
+          <div class="type-specimen panel">
+            <div>
+              <span class="type-specimen__meta">h1 · MedievalSharp · --text-3xl</span>
+              <p class="h1-sample">El reino del código</p>
+            </div>
+            <div>
+              <span class="type-specimen__meta">h2 · MedievalSharp · --text-2xl</span>
+              <p class="h2-sample">Capítulo de proyectos</p>
+            </div>
+            <div>
+              <span class="type-specimen__meta">h3 · MedievalSharp · --text-xl</span>
+              <p class="h3-sample">Título de una card</p>
+            </div>
+            <div>
+              <span class="type-specimen__meta">Párrafo · Alegreya · --text-base</span>
+              <p>Texto de cuerpo pensado para la lectura cómoda de descripciones largas y párrafos.</p>
+            </div>
+            <div>
+              <span class="type-specimen__meta">Texto secundario · --color-text-muted · --text-sm</span>
+              <p class="text-muted"><small>Información complementaria, fechas y notas.</small></p>
+            </div>
+            <div>
+              <span class="type-specimen__meta">Enlace · --color-link</span>
+              <p><a href="#design-system">Un enlace dentro del texto</a></p>
+            </div>
+            <div>
+              <span class="type-specimen__meta">UI / etiquetas · Pixelify Sans</span>
+              <p class="form-label">Botones, navegación, badges y formularios</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Espaciado -->
+        <section class="ds-block" aria-labelledby="ds-spacing">
+          <h3 id="ds-spacing">Espaciado</h3>
+          <p>Escala basada en múltiplos de 4px, definida en rem para respetar el tamaño de fuente del usuario.</p>
+          <ul class="spacing-scale panel">
+            <li><span>--space-2xs · 4px</span><span class="spacing-scale__bar spacing-scale__bar--2xs"></span></li>
+            <li><span>--space-xs · 8px</span><span class="spacing-scale__bar spacing-scale__bar--xs"></span></li>
+            <li><span>--space-sm · 12px</span><span class="spacing-scale__bar spacing-scale__bar--sm"></span></li>
+            <li><span>--space-md · 16px</span><span class="spacing-scale__bar spacing-scale__bar--md"></span></li>
+            <li><span>--space-lg · 24px</span><span class="spacing-scale__bar spacing-scale__bar--lg"></span></li>
+            <li><span>--space-xl · 32px</span><span class="spacing-scale__bar spacing-scale__bar--xl"></span></li>
+            <li><span>--space-2xl · 48px</span><span class="spacing-scale__bar spacing-scale__bar--2xl"></span></li>
+            <li><span>--space-3xl · 80px</span><span class="spacing-scale__bar spacing-scale__bar--3xl"></span></li>
+          </ul>
+        </section>
+
+        <!-- Bordes y sombras -->
+        <section class="ds-block" aria-labelledby="ds-borders">
+          <h3 id="ds-borders">Bordes, radios y sombras</h3>
+          <p>Estilo pixel: radios pequeños y sombras duras sin desenfoque.</p>
+          <div class="token-grid">
+            <div class="token-sample token-sample--radius-sm">--radius-sm<br>2px</div>
+            <div class="token-sample token-sample--radius-md">--radius-md<br>4px</div>
+            <div class="token-sample token-sample--radius-lg">--radius-lg<br>8px</div>
+            <div class="token-sample token-sample--shadow-sm">--shadow-sm</div>
+            <div class="token-sample token-sample--shadow-card">--shadow-card</div>
+            <div class="token-sample token-sample--shadow-lg">--shadow-lg</div>
+          </div>
+        </section>
+
+        <!-- Componentes -->
+        <section class="ds-block" aria-labelledby="ds-components">
+          <h3 id="ds-components">Componentes</h3>
+          <div class="component-grid">
+            <article class="component-demo">
+              <h4>Botones · .btn</h4>
+              <div class="component-demo__row">
+                <button class="btn btn--primary" type="button">Primario</button>
+                <button class="btn btn--secondary" type="button">Secundario</button>
+              </div>
+              <div class="component-demo__row">
+                <button class="btn btn--ghost" type="button">Ghost</button>
+                <button class="btn btn--primary btn--sm" type="button">Pequeño</button>
+                <button class="btn btn--primary" type="button" disabled>Deshabilitado</button>
+              </div>
+            </article>
+
+            <article class="component-demo">
+              <h4>Badges y chips · .badge / .chip</h4>
+              <ul class="badge-list" aria-label="Ejemplo de badges">
+                <li class="badge">HTML5</li><li class="badge">CSS3</li><li class="badge badge--primary">Destacado</li>
+              </ul>
+              <div class="component-demo__row">
+                <button class="chip" type="button" aria-pressed="true">Activo</button>
+                <button class="chip" type="button" aria-pressed="false">Inactivo</button>
+              </div>
+            </article>
+
+            <article class="component-demo">
+              <h4>Skill · .skill</h4>
+              <div class="skill">
+                <img class="skill__icon" src="assets/icons/css3.svg" alt="Logo de CSS3" width="32" height="32" loading="lazy">
+                <p class="skill__name">CSS3</p>
+                <div class="skill__meta">
+                  <span class="badge">Frontend</span>
+                  <span class="skill-level" data-level="3" role="img" aria-label="Nivel 3 de 4: Caballero"><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span></span>
+                  <span class="skill-level__label">Caballero</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="component-demo">
+              <h4>Inputs y textarea · .form-*</h4>
+              <div class="form-field">
+                <label class="form-label" for="ds-input">Nombre</label>
+                <input class="form-input" id="ds-input" type="text" placeholder="Sir Lancelot">
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="ds-input-error">Correo (estado de error)</label>
+                <input class="form-input" id="ds-input-error" type="email" value="correo-invalido" aria-invalid="true" aria-describedby="ds-input-error-msg">
+                <p class="form-error" id="ds-input-error-msg">Ingresa un correo válido.</p>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="ds-textarea">Mensaje</label>
+                <textarea class="form-textarea" id="ds-textarea" rows="3" placeholder="Escribe tu mensaje…"></textarea>
+              </div>
+            </article>
+
+            <article class="component-demo">
+              <h4>Navbar · .nav__list</h4>
+              <nav aria-label="Ejemplo de navegación">
+                <ul class="nav__list">
+                  <li><a class="nav__link" href="#design-system" aria-current="true">Activo</a></li>
+                  <li><a class="nav__link" href="#design-system">Enlace</a></li>
+                  <li><a class="nav__link" href="#design-system">Enlace</a></li>
+                </ul>
+              </nav>
+              <h4>Botones de ícono · .btn--icon</h4>
+              <div class="component-demo__row">
+                <button class="btn btn--icon" type="button" aria-label="Ejemplo: volver arriba">
+                  <svg viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" fill="currentColor"><path d="M7 2h2v1h1v1h1v1h1v1h1v2h-3v6H6V8H3V6h1V5h1V4h1V3h1z"/></svg>
+                </button>
+              </div>
+            </article>
+
+            <article class="component-demo">
+              <h4>Alertas · .alert</h4>
+              <p class="alert alert--success">¡Tu cuervo ha partido con el mensaje!</p>
+              <p class="alert alert--error">Revisa los campos marcados.</p>
+              <h4>Nivel de dominio · .skill-level</h4>
+              <span class="skill-level" data-level="2" role="img" aria-label="Nivel 2 de 4"><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span></span>
+            </article>
+
+            <article class="component-demo component-demo--wide">
+              <h4>Card de proyecto · .project-card</h4>
+              <div class="project-card">
+                <figure class="project-card__media">
+                  <img src="assets/img/project-tasks.svg" width="320" height="180" loading="lazy" alt="Ejemplo de imagen de card: pergamino con lista de tareas">
+                </figure>
+                <div class="project-card__body">
+                  <h5 class="project-card__title">Nombre del proyecto</h5>
+                  <p class="project-card__text">Descripción breve del proyecto.</p>
+                  <p class="project-card__text"><span class="project-card__label">Problema:</span> necesidad que resuelve.</p>
+                  <ul class="badge-list" aria-label="Tecnologías de ejemplo">
+                    <li class="badge">HTML5</li><li class="badge">JavaScript</li>
+                  </ul>
+                  <div class="project-card__actions">
+                    <a class="btn btn--primary btn--sm" href="#proyectos">Ver proyectos</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACTO ===================== -->
+    <section id="contacto" aria-labelledby="contact-title">
+      <div class="container">
+        <header class="section-heading reveal">
+          <span class="section-heading__kicker">Capítulo VI · El cuervo mensajero</span>
+          <h2 id="contact-title">Contacto</h2>
+          <p class="section-heading__lead">¿Tienes una oportunidad, proyecto o pregunta? Envíame un mensaje.</p>
+        </header>
+
+        <div class="contact">
+          <aside class="panel reveal" aria-labelledby="contact-info-title">
+            <h3 id="contact-info-title">Dónde encontrarme</h3>
+            <ul class="contact__list">
+              <li><strong>Correo:</strong> <a href="mailto:josuefernandoguadalupe@gmail.com">josuefernandoguadalupe@gmail.com</a></li>
+              <li><strong>GitHub:</strong> <a href="https://github.com/josueguadalupeee" target="_blank" rel="noopener noreferrer">github.com/josueguadalupeee</a></li>
+              <li><strong>Disponibilidad:</strong> <span>Proyectos freelance</span></li>
+            </ul>
+          </aside>
+
+          <form class="panel contact-form reveal" id="contact-form" data-mailto="josuefernandoguadalupe@gmail.com" novalidate>
+            <div class="form-field">
+              <label class="form-label" for="name">Nombre completo</label>
+              <input class="form-input" id="name" name="name" type="text" autocomplete="name" required minlength="3" aria-describedby="name-error">
+              <p class="form-error" id="name-error"></p>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="email">Correo electrónico</label>
+              <input class="form-input" id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error">
+              <p class="form-error" id="email-error"></p>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="subject">Motivo</label>
+              <select class="form-select" id="subject" name="subject" required aria-describedby="subject-error">
+                <option value="">Selecciona una opción</option>
+                <option value="Oportunidad laboral">Oportunidad laboral</option>
+                <option value="Colaboración en proyecto">Colaboración en proyecto</option>
+                <option value="Consulta académica">Consulta académica</option>
+                <option value="Otro">Otro</option>
+              </select>
+              <p class="form-error" id="subject-error"></p>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="message">Mensaje</label>
+              <textarea class="form-textarea" id="message" name="message" rows="5" required minlength="20" maxlength="1000" aria-describedby="message-hint message-error"></textarea>
+              <span class="form-hint" id="message-hint"><span id="message-count">0</span>/1000 caracteres (mínimo 20)</span>
+              <p class="form-error" id="message-error"></p>
+            </div>
+            <button class="btn btn--primary" type="submit">Enviar mensaje</button>
+            <p class="alert" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== PIE DE PÁGINA ===================== -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <nav aria-label="Navegación del pie de página">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#inicio">Inicio</a></li>
+          <li><a class="nav__link" href="#sobre-mi">Sobre mí</a></li>
+          <li><a class="nav__link" href="#habilidades">Habilidades</a></li>
+          <li><a class="nav__link" href="#proyectos">Proyectos</a></li>
+          <li><a class="nav__link" href="#github">GitHub</a></li>
+          <li><a class="nav__link" href="#design-system">Design System</a></li>
+          <li><a class="nav__link" href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <p>&copy; <span id="year">2026</span> Josué Fernando Guadalupe. Forjado con HTML, CSS y JavaScript, sin frameworks.</p>
+    </div>
+  </footer>
+
+  <button class="btn btn--icon back-to-top" type="button" aria-label="Volver al inicio de la página">
+    <svg viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" fill="currentColor"><path d="M7 2h2v1h1v1h1v1h1v1h1v2h-3v6H6V8H3V6h1V5h1V4h1V3h1z"/></svg>
+  </button>
+</body>
+</html>
