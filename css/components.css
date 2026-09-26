@@ -24,7 +24,6 @@
   font-size: var(--text-base);
   line-height: 1.2;
   text-decoration: none;
-  cursor: pointer;
   border: var(--border);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-sm);
@@ -135,7 +134,6 @@
   background: var(--color-surface);
   border: var(--border-width-thin) solid var(--color-border);
   border-radius: var(--radius-sm);
-  cursor: pointer;
   transition: background-color var(--duration-fast), transform var(--duration-fast);
 }
 

@@ -111,7 +111,15 @@
         </svg>
 
         <div class="scene__ground"></div>
-        <div class="knight pixelated"></div>
+        <div class="battle">
+          <div class="battle__knight">
+            <div class="battle__knight-sprite pixelated"></div>
+          </div>
+          <div class="battle__dragon">
+            <div class="battle__fire pixelated"></div>
+            <div class="battle__dragon-sprite pixelated"></div>
+          </div>
+        </div>
         <div class="scene__embers">
           <span class="ember"></span><span class="ember"></span><span class="ember"></span>
           <span class="ember"></span><span class="ember"></span><span class="ember"></span>
@@ -682,6 +690,20 @@
               <p class="alert alert--error">Revisa los campos marcados.</p>
               <h4>Nivel de dominio · .skill-level</h4>
               <span class="skill-level" data-level="2" role="img" aria-label="Nivel 2 de 4"><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span><span class="skill-level__pip"></span></span>
+            </article>
+
+            <article class="component-demo">
+              <h4>Cursores · espada pixel art</h4>
+              <div class="component-demo__row">
+                <figure class="cursor-sample">
+                  <img class="pixelated" src="assets/img/cursor-sword.svg" width="64" height="64" alt="Cursor por defecto: espada de hoja plateada">
+                  <figcaption>Por defecto</figcaption>
+                </figure>
+                <figure class="cursor-sample">
+                  <img class="pixelated" src="assets/img/cursor-sword-gold.svg" width="64" height="64" alt="Cursor sobre enlaces y botones: espada dorada">
+                  <figcaption>Enlaces y botones</figcaption>
+                </figure>
+              </div>
             </article>
 
             <article class="component-demo component-demo--wide">
