@@ -1,0 +1,163 @@
+/* ==========================================================================
+   TOKENS — Decisiones visuales del Design System
+   1) Primitivos: valores crudos de la paleta.
+   2) Semánticos: el propósito de cada color. Los componentes SOLO usan estos.
+   3) Tema noche: redefine únicamente los tokens semánticos.
+   ========================================================================== */
+
+:root {
+  /* ---------- 1. Primitivos de color ---------- */
+  --gold-300: #f2c96b;
+  --gold-500: #c8962e;
+  --gold-700: #8a6414;
+  --crimson-300: #e07a6e;
+  --crimson-500: #9b2c2c;
+  --crimson-700: #6e1d1d;
+  --parchment-100: #fbf3e0;
+  --parchment-200: #f3e3bf;
+  --parchment-300: #e6cf9e;
+  --ink-900: #2b1d0e;
+  --ink-600: #5c4630;
+  --wood-500: #6b4423;
+  --night-900: #14111f;
+  --night-800: #1f1b30;
+  --night-700: #2a2540;
+  --night-500: #3b3456;
+  --moon-100: #f1e6cc;
+  --moon-300: #c4b89c;
+  --forest-500: #3f7a3a;
+  --forest-700: #2d5a2a;
+  --sky-500: #5b7fb3;
+  --sky-700: #3b5b8c;
+  --steel-400: #a9b4c2;
+
+  /* ---------- 2. Colores semánticos (tema día) ---------- */
+  --color-primary: var(--gold-500);
+  --color-primary-strong: var(--gold-700);
+  --color-on-primary: var(--ink-900);
+  --color-secondary: var(--crimson-500);
+  --color-secondary-strong: var(--crimson-700);
+  --color-on-secondary: var(--parchment-100);
+  --color-background: var(--parchment-200);
+  --color-surface: var(--parchment-100);
+  --color-surface-alt: var(--parchment-300);
+  --color-text: var(--ink-900);
+  --color-text-muted: var(--ink-600);
+  --color-link: var(--crimson-500);
+  --color-border: var(--ink-900);
+  --color-shadow: rgb(43 29 14 / 0.9);
+  --color-success: var(--forest-500);
+  --color-error: #b3261e;
+  --color-focus: var(--sky-700);
+
+  /* Escena animada (hero) */
+  --scene-sky-top: #7fa6d9;
+  --scene-sky-bottom: #f3d9a4;
+  --scene-celestial: var(--gold-300);
+  --scene-mountain-far: #8fa3c0;
+  --scene-mountain-near: #5f7a9c;
+  --scene-castle: #4a4560;
+  --scene-window: #2a2540;
+  --scene-ground: var(--forest-500);
+  --scene-ground-dark: var(--forest-700);
+  --scene-stars-opacity: 0;
+
+  /* ---------- Tipografía ---------- */
+  --font-display: "MedievalSharp", "Georgia", serif;
+  --font-body: "Alegreya", "Georgia", "Times New Roman", serif;
+  --font-pixel: "Pixelify Sans", "Courier New", monospace;
+
+  --text-xs: 0.8rem;
+  --text-sm: 0.9rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: clamp(1.35rem, 1.1rem + 0.8vw, 1.6rem);
+  --text-2xl: clamp(1.8rem, 1.3rem + 1.8vw, 2.5rem);
+  --text-3xl: clamp(2.2rem, 1.4rem + 3.5vw, 4rem);
+
+  --leading-tight: 1.15;
+  --leading-normal: 1.6;
+  --weight-regular: 400;
+  --weight-bold: 700;
+
+  /* ---------- Espaciado (escala base 4px) ---------- */
+  --space-2xs: 0.25rem;  /*  4px */
+  --space-xs: 0.5rem;    /*  8px */
+  --space-sm: 0.75rem;   /* 12px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+  --space-3xl: 5rem;     /* 80px */
+
+  /* ---------- Bordes, radios y sombras (estilo pixel) ---------- */
+  --border-width: 3px;
+  --border-width-thin: 2px;
+  --border: var(--border-width) solid var(--color-border);
+  --radius-none: 0;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-round: 50%;
+  --shadow-sm: 2px 2px 0 var(--color-shadow);
+  --shadow-card: 5px 5px 0 var(--color-shadow);
+  --shadow-lg: 8px 8px 0 var(--color-shadow);
+  --shadow-pressed: 1px 1px 0 var(--color-shadow);
+
+  /* ---------- Tamaños relevantes ---------- */
+  --container-max: 72rem;
+  --header-height: 4.5rem;
+  --avatar-size: clamp(10rem, 30vw, 16rem);
+  --icon-size: 2rem;
+  --sprite-size: 4rem;
+  --touch-target: 2.75rem;
+
+  /* ---------- Movimiento ---------- */
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 700ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* ---------- Capas ---------- */
+  --z-scene: 0;
+  --z-content: 1;
+  --z-header: 100;
+  --z-floating: 200;
+  --z-modal: 300;
+
+  color-scheme: light;
+}
+
+/* ---------- 3. Tema noche ---------- */
+:root[data-theme="dark"] {
+  --color-primary: #e0b04a;
+  --color-primary-strong: var(--gold-300);
+  --color-on-primary: var(--night-900);
+  --color-secondary: #c94a4a;
+  --color-secondary-strong: var(--crimson-300);
+  --color-on-secondary: var(--moon-100);
+  --color-background: var(--night-900);
+  --color-surface: var(--night-800);
+  --color-surface-alt: var(--night-700);
+  --color-text: var(--moon-100);
+  --color-text-muted: var(--moon-300);
+  --color-link: var(--gold-300);
+  --color-border: #7a6440;
+  --color-shadow: rgb(0 0 0 / 0.85);
+  --color-success: #7cc46f;
+  --color-error: #ff8a80;
+  --color-focus: var(--gold-300);
+
+  --scene-sky-top: #0b0a1a;
+  --scene-sky-bottom: #2a2550;
+  --scene-celestial: var(--moon-100);
+  --scene-mountain-far: #2b2748;
+  --scene-mountain-near: #1d1a33;
+  --scene-castle: #15121f;
+  --scene-window: #f2c96b;
+  --scene-ground: #1f3a1d;
+  --scene-ground-dark: #142812;
+  --scene-stars-opacity: 1;
+
+  color-scheme: dark;
+}
