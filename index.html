@@ -350,124 +350,41 @@
 
         <div class="filter-bar" role="group" aria-label="Filtrar proyectos por tecnología">
           <button class="chip" type="button" data-filter="all" aria-pressed="true">Todos</button>
-          <button class="chip" type="button" data-filter="html" aria-pressed="false">HTML</button>
-          <button class="chip" type="button" data-filter="css" aria-pressed="false">CSS</button>
-          <button class="chip" type="button" data-filter="js" aria-pressed="false">JavaScript</button>
-          <button class="chip" type="button" data-filter="api" aria-pressed="false">API</button>
           <button class="chip" type="button" data-filter="python" aria-pressed="false">Python</button>
-          <button class="chip" type="button" data-filter="mysql" aria-pressed="false">MySQL</button>
+          <button class="chip" type="button" data-filter="django" aria-pressed="false">Django</button>
+          <button class="chip" type="button" data-filter="postgresql" aria-pressed="false">PostgreSQL</button>
+          <button class="chip" type="button" data-filter="bootstrap" aria-pressed="false">Bootstrap</button>
+          <button class="chip" type="button" data-filter="js" aria-pressed="false">JavaScript</button>
         </div>
         <p class="visually-hidden" id="filter-status" role="status" aria-live="polite"></p>
 
         <div class="projects-grid">
           <!-- Card de proyecto (componente reutilizable) -->
-          <article class="project-card reveal" data-tech="html css js">
+          <article class="project-card reveal" data-tech="python django postgresql bootstrap html css js">
             <figure class="project-card__media">
-              <img src="assets/img/project-portfolio.svg" width="320" height="180" loading="lazy"
-                   alt="Captura ilustrada del portafolio: castillo pixelado de noche con ventanas iluminadas">
+              <img src="assets/img/project-medical.svg" width="320" height="180" loading="lazy"
+                   alt="Ilustración pixel art del sistema médico: edificio de hospital con una cruz roja y un panel con la lista de citas">
             </figure>
             <div class="project-card__body">
-              <h3 class="project-card__title">Portafolio Medieval</h3>
-              <p class="project-card__text">Este mismo sitio: un portafolio con escena 2D animada, tema día/noche y un Design System documentado.</p>
-              <p class="project-card__text"><span class="project-card__label">Problema:</span> presentar mi perfil profesional de forma memorable, accesible y responsive.</p>
+              <h3 class="project-card__title">Sistema Médico</h3>
+              <p class="project-card__text">Aplicación web para administrar un consultorio médico: pacientes, doctores, citas, atenciones, exámenes y medicamentos.</p>
+              <p class="project-card__text"><span class="project-card__label">Problema:</span> centralizar la información clínica y administrativa que suele llevarse en papel u hojas de cálculo dispersas.</p>
               <ul class="badge-list" aria-label="Tecnologías utilizadas">
-                <li class="badge">HTML5</li><li class="badge">CSS3</li><li class="badge">JavaScript</li>
+                <li class="badge">Python</li><li class="badge">Django</li><li class="badge">PostgreSQL</li><li class="badge">Bootstrap</li><li class="badge">JavaScript</li>
               </ul>
               <div class="project-card__details" hidden>
                 <h4>Características</h4>
                 <ul>
-                  <li>Escena animada con CSS (nubes, caballero, banderas y antorchas).</li>
-                  <li>Tema claro/oscuro y pausa de animaciones guardados en localStorage.</li>
-                  <li>Filtro de proyectos, modal con &lt;dialog&gt; y validación de formulario.</li>
-                  <li>Repositorios obtenidos en vivo desde la API de GitHub.</li>
+                  <li>Registro de pacientes, doctores, especialidades, empleados y cargos.</li>
+                  <li>Agenda de citas médicas y horarios de atención.</li>
+                  <li>Atenciones médicas con diagnósticos, exámenes solicitados, medicamentos y servicios adicionales.</li>
+                  <li>Estadísticas y auditoría de las acciones de los usuarios.</li>
+                  <li>Inicio de sesión y registro de usuarios.</li>
                 </ul>
               </div>
               <div class="project-card__actions">
                 <button class="btn btn--primary btn--sm" type="button" data-project-open>Ver detalles</button>
-                <a class="btn btn--ghost btn--sm" href="https://github.com/josueguadalupeee/Portafolio_Josue_Guadalupe" target="_blank" rel="noopener noreferrer">Repositorio</a>
-                <a class="btn btn--ghost btn--sm" href="https://josueguadalupeee.github.io/Portafolio_Josue_Guadalupe/" target="_blank" rel="noopener noreferrer">Demo</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-tech="html css js">
-            <figure class="project-card__media">
-              <img src="assets/img/project-tasks.svg" width="320" height="180" loading="lazy"
-                   alt="Captura ilustrada del gestor de tareas: pergamino con una lista de pendientes marcados">
-            </figure>
-            <div class="project-card__body">
-              <h3 class="project-card__title">Bitácora del Escudero</h3>
-              <p class="project-card__text">Aplicación de lista de tareas para crear, completar, filtrar y eliminar pendientes.</p>
-              <p class="project-card__text"><span class="project-card__label">Problema:</span> organizar entregas académicas sin perder la información al cerrar el navegador.</p>
-              <ul class="badge-list" aria-label="Tecnologías utilizadas">
-                <li class="badge">HTML5</li><li class="badge">CSS3</li><li class="badge">JavaScript</li>
-              </ul>
-              <div class="project-card__details" hidden>
-                <h4>Características</h4>
-                <ul>
-                  <li>CRUD de tareas manipulando el DOM.</li>
-                  <li>Persistencia de datos con localStorage.</li>
-                  <li>Filtros: todas, pendientes y completadas.</li>
-                </ul>
-              </div>
-              <div class="project-card__actions">
-                <button class="btn btn--primary btn--sm" type="button" data-project-open>Ver detalles</button>
-                <a class="btn btn--ghost btn--sm" href="https://github.com/josueguadalupeee/gestor-tareas" target="_blank" rel="noopener noreferrer">Repositorio</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-tech="python mysql">
-            <figure class="project-card__media">
-              <img src="assets/img/project-library.svg" width="320" height="180" loading="lazy"
-                   alt="Captura ilustrada del sistema de biblioteca: estantería de madera con libros de colores">
-            </figure>
-            <div class="project-card__body">
-              <h3 class="project-card__title">Biblioteca Arcana</h3>
-              <p class="project-card__text">Sistema de consola para gestionar libros, lectores y préstamos de una biblioteca.</p>
-              <p class="project-card__text"><span class="project-card__label">Problema:</span> llevar el control de préstamos que antes se registraban en papel.</p>
-              <ul class="badge-list" aria-label="Tecnologías utilizadas">
-                <li class="badge">Python</li><li class="badge">MySQL</li>
-              </ul>
-              <div class="project-card__details" hidden>
-                <h4>Características</h4>
-                <ul>
-                  <li>Base de datos relacional con tablas de libros, lectores y préstamos.</li>
-                  <li>Consultas con JOIN para reportes de libros prestados.</li>
-                  <li>Validación de entradas y manejo de errores.</li>
-                </ul>
-              </div>
-              <div class="project-card__actions">
-                <button class="btn btn--primary btn--sm" type="button" data-project-open>Ver detalles</button>
-                <a class="btn btn--ghost btn--sm" href="https://github.com/josueguadalupeee/biblioteca" target="_blank" rel="noopener noreferrer">Repositorio</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-tech="html css js api">
-            <figure class="project-card__media">
-              <img src="assets/img/project-weather.svg" width="320" height="180" loading="lazy"
-                   alt="Captura ilustrada de la app del clima: sol pixelado sobre colinas y un panel con la temperatura">
-            </figure>
-            <div class="project-card__body">
-              <h3 class="project-card__title">Oráculo del Clima</h3>
-              <p class="project-card__text">Consulta el clima actual de cualquier ciudad usando una API pública.</p>
-              <p class="project-card__text"><span class="project-card__label">Problema:</span> practicar el consumo de APIs y mostrar datos externos de forma clara.</p>
-              <ul class="badge-list" aria-label="Tecnologías utilizadas">
-                <li class="badge">HTML5</li><li class="badge">CSS3</li><li class="badge">JavaScript</li><li class="badge">API REST</li>
-              </ul>
-              <div class="project-card__details" hidden>
-                <h4>Características</h4>
-                <ul>
-                  <li>Peticiones asíncronas con fetch y async/await.</li>
-                  <li>Estados de carga y de error.</li>
-                  <li>Diseño responsive con CSS Grid.</li>
-                </ul>
-              </div>
-              <div class="project-card__actions">
-                <button class="btn btn--primary btn--sm" type="button" data-project-open>Ver detalles</button>
-                <a class="btn btn--ghost btn--sm" href="https://github.com/josueguadalupeee/clima" target="_blank" rel="noopener noreferrer">Repositorio</a>
-                <a class="btn btn--ghost btn--sm" href="https://josueguadalupeee.github.io/clima/" target="_blank" rel="noopener noreferrer">Demo</a>
+                <a class="btn btn--ghost btn--sm" href="https://github.com/josueguadalupeee/Proyecto-Sistema-Medico-Josue-Guadalupe" target="_blank" rel="noopener noreferrer">Repositorio</a>
               </div>
             </div>
           </article>
@@ -711,7 +628,7 @@
               <h4>Card de proyecto · .project-card</h4>
               <div class="project-card">
                 <figure class="project-card__media">
-                  <img src="assets/img/project-tasks.svg" width="320" height="180" loading="lazy" alt="Ejemplo de imagen de card: pergamino con lista de tareas">
+                  <img src="assets/img/project-medical.svg" width="320" height="180" loading="lazy" alt="Ejemplo de imagen de card: ilustración del sistema médico">
                 </figure>
                 <div class="project-card__body">
                   <h5 class="project-card__title">Nombre del proyecto</h5>
